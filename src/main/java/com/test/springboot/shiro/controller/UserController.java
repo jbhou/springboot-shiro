@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.test.springboot.shiro.service.UserService;
 
 /**
- * @author superxiaojie 2018-5-18.
  */
 @RestController
 @RequestMapping("/rest/v1/user")

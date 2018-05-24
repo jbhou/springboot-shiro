@@ -5,8 +5,6 @@ import org.springframework.stereotype.Component;
 
 
 /**
- * @author superxiaojie
- *         2018-5-18.
  */
 @Component
 public class CustomConversion implements Converter<String, String>{

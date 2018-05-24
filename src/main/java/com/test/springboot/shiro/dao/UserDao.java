@@ -17,9 +17,6 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author superxiaojie 2018-5-18.
- */
 @Repository
 public class UserDao extends BaseDao {
     @Autowired

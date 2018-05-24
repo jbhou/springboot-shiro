@@ -7,8 +7,6 @@ import org.apache.shiro.subject.Subject;
 
 
 /**
- * @author superxiaojie
- *         2018-5-23.
  */
 public class ShiroUtil {
     public static void getUserRole(){
