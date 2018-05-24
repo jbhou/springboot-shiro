@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.springboot.shiro.dao" >
+    <resultMap id="BaseResultMap" type="com.test.springboot.shiro.dao.entity.UserEntity">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="last_modify_time" jdbcType="TIMESTAMP" property="lastModifyTime" />
+        <result column="role_id" jdbcType="INTEGER" property="roleId" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="email" jdbcType="VARCHAR" property="email" />
+        <result column="tel" jdbcType="VARCHAR" property="tel" />
+        <result column="login_username" jdbcType="VARCHAR" property="loginUsername" />
+        <result column="login_password" jdbcType="VARCHAR" property="loginPassword" />
+        <result column="account_status" jdbcType="TINYINT" property="accountStatus" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, create_time, last_modify_time, role_id, name, email, tel, login_username, login_password,
+        account_status
+    </sql>
+
+
+    <select id="getUser" parameterType="com.test.springboot.shiro.dao.entity.UserEntity" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from
+        tb_user
+            where login_username=#{loginUsername}
+            and
+            login_password =#{loginPassword}
+
+    </select>
+    
+    
+    
+    
+    <select id="getUserPermissionIds" parameterType="int" resultType="java.util.HashMap">
+    select 
+    	r.access_menu_ids as menuIds,
+    	r.access_resource_operation_ids as resourceIds
+    from 
+    	tb_user u INNER JOIN tb_role r 
+    on 
+    	u.role_id = r.id  
+    where u.id = #{userId}  
+    
+    
+    </select>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</mapper>

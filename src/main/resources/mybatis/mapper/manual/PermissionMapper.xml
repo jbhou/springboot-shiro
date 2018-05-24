@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.springboot.shiro.dao" >
+    
+    
+    <select id="getRoleAccessResourceIds" parameterType="int" resultType="java.util.HashMap">
+		  select 
+			r.id,
+			r.role_name as roleName, 
+			r.access_resource_operation_ids as resourceIds
+		  from 
+		  	tb_user u INNER 
+		  JOIN 
+		  	tb_role r 
+		  on 
+		  	r.id = u.role_id 
+		  where 
+		  	u.id= #{id} 
+    
+    </select>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</mapper>
